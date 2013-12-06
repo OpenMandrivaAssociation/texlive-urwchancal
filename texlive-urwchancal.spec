@@ -6,7 +6,7 @@
 # catalog-version 1
 Name:		texlive-urwchancal
 Version:	1
-Release:	5
+Release:	6
 Summary:	Use URW's clone of Zapf Chancery as a maths alphabet
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/urwchancal
