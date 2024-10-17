@@ -3,7 +3,7 @@ Version:	21701
 Release:	2
 Summary:	Use URW's clone of Zapf Chancery as a maths alphabet
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/urwchancal
+URL:		https://www.ctan.org/tex-archive/fonts/urwchancal
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/urwchancal.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/urwchancal.doc.r%{version}.tar.xz
