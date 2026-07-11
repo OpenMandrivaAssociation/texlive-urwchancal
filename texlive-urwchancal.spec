@@ -1,47 +1,24 @@
-Name:		texlive-urwchancal
-Version:	21701
-Release:	2
-Summary:	Use URW's clone of Zapf Chancery as a maths alphabet
+%global tl_name urwchancal
+%global tl_revision 21701
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1
+Release:	%{tl_revision}.1
+Summary:	Use URWs clone of Zapf Chancery as a maths alphabet
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/fonts/urwchancal
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/urwchancal.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/urwchancal.doc.r%{version}.tar.xz
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/urwchancal.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/urwchancal.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package allows (the URW clone of) Zapf Chancery to function
-as a maths alphabet, the target of \mathcal or \mathscr, with
-accents appearing where they should, and other spacing
-parameters set to reasonable (not very tight) values.
+The package allows (the URW clone of) Zapf Chancery to function as a
+maths alphabet, the target of \mathcal or \mathscr, with accents
+appearing where they should, and other spacing parameters set to
+reasonable (not very tight) values. The font itself may be found in the
+URW basic fonts collection. This package supersedes the pzccal package.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/fonts/tfm/urw/urwchancal/urwchancal.tfm
-%{_texmfdistdir}/fonts/vf/urw/urwchancal/urwchancal.vf
-%{_texmfdistdir}/tex/latex/urwchancal/urwchancal.sty
-%{_texmfdistdir}/tex/latex/urwchancal/uurwchancal.fd
-%doc %{_texmfdistdir}/doc/fonts/urwchancal/README
-%doc %{_texmfdistdir}/doc/fonts/urwchancal/urwchancal-doc.pdf
-%doc %{_texmfdistdir}/doc/fonts/urwchancal/urwchancal-doc.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar fonts tex doc %{buildroot}%{_texmfdistdir}
